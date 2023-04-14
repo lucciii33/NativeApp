@@ -1,28 +1,38 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Image,Button } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
+// import { AppLoading } from 'expo';
+// import {
+//   useFonts,
+//   Inter_900Black,
+// } from '@expo-google-fonts/inter';
 
 
-export default function Home({navigation}) {
+
+export default function InfoItem({navigation}) {
+ 
 
   return (
 
     <View style={styles.container}>
+       
        <LinearGradient
         colors={['#4c669f', '#3b5998', '#192f6a']}
         style={styles.gradient}
       > 
       
       <Image
-        source={require('../img/burger1.png')}
-        style={{ width: 200, height: 200 }}
+        source={require('../img/burgerID2.png')}
+        style={{ width: 320, height: 390, }}
       />
-      <Text style={styles.text1}>¡Bienvenidos a blueBurger!</Text>
-      <Text style={styles.text2}>La perfección en cada smash</Text>
-      <Text style={styles.text3}>sabores auténticos en cada orden</Text>
+       <View>
+      <Text style={styles.text1}>¡SINGLE ONE!</Text>
+      <Text style={styles.text2}>"Disfruta de una deliciosa hamburguesa con queso jugoso, cubierta con queso derretido y cargada de verduras frescas y crujientes!"</Text>
+      <Text style={styles.text3}>4.993333333$</Text>
       <View style={styles.button1}>
-      <Button  title="Press me"
-       onPress={() => navigation.navigate('Menu')} />
+     
+
+      </View>
       </View>
       </LinearGradient>
     </View>
@@ -41,30 +51,34 @@ const styles = StyleSheet.create({
     flex: 1,
     width: "100%",
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'start',
     padding: "4%"
   },
   text1:{
-    fontSize: 40,
+    // fontSize: "40px",
     color: "white",
-    textAlign: 'center',
+    textAlign: 'left',
     marginTop: "5%",
+    marginTop: "10%"
+    // fontFamily:"Inter_900Black"
   },
   text2:{
-    fontSize: 27,
+    // fontSize: "18%",
     color: "white",
-    textAlign: 'center',
-    marginTop: "5%"
+    textAlign: 'left',
+    marginTop: "5%",
+    fontWeight: "lighter"
   },
   text3:{
-    fontSize: 25,
+    // fontSize: "29%",
     color: "white",
-    textAlign: 'center',
+    alignSelf: 'flex-end',
+    marginTop: "10%"
   },
   button1:{
     backgroundColor: "white",
     width: "40%",
-    height:"05%",
+    height:"7%",
     borderRadius: "40%",
     marginTop: "10%"
   }

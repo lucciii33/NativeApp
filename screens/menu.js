@@ -12,8 +12,9 @@ import CardItem from "../components/cardItem";
 import CardDrink from "../components/cardDrink";
 import React, { useState } from "react";
 
-export default function Menu() {
+export default function Menu({navigation}) {
   const [tab, setTab] = useState(true);
+  const [color, setColor] = useState(true);
   return (
     <View>
       <View
@@ -34,22 +35,45 @@ export default function Menu() {
           padding: "5%",
         }}
       >
-        <View style={styles.button2}>
-          <Button title="Hamburgesas"  onPress={() => setTab(true)}/>
+        <View style={color === true ? styles.buttonAct : styles.button2}>
+          <Button title="Hamburgesas"  onPress={() => {
+              setTab(true);
+              setColor(true);
+            }} 
+            color={color === true ? "white" : "white"}
+            />
         </View>
-        <View style={styles.button2}>
-          <Button title="Bebidas" onPress={() => setTab(false)}/>
+        <View style={color === true ? styles.button2 : styles.buttonAct}>
+          <Button title="Bebidas" onPress={() => {
+              setTab(false);
+              setColor(false);
+            }}
+            color={color === true ? "white" : "black"}
+          
+          />
         </View>
       </View>
 
       <ScrollView horizontal={true} >
         {tab === true ? (
+          <View>
           <View style={styles.container}>
-            <CardItem />
-            <CardItem />
-            <CardItem />
-            <CardItem />
-            <CardItem />
+            <CardItem navigation={navigation}/>
+            <CardItem navigation={navigation}/>
+            <CardItem navigation={navigation}/>
+            <CardItem navigation={navigation}/>
+            <CardItem navigation={navigation}/>
+          </View>
+          <View
+        style={{
+          flexDirection: "row",
+          justifyContent: "space-between",
+          padding: "5%",
+        }}
+      >
+        <Text>burger 1</Text>
+        <Text>$4,99</Text>
+      </View>
           </View>
         ) : (
           <View style={styles.container}>
@@ -77,5 +101,12 @@ const styles = StyleSheet.create({
     width: "40%",
     height: "110%",
     borderRadius: "40%",
+  },
+  buttonAct: {
+    backgroundColor: "#2C7BEC",
+    width: "40%",
+    height: "110%",
+    borderRadius: "40%",
+    color: "black",
   },
 });
